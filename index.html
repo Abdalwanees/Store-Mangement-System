@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>CRUD</title>
+    <!-- Style css -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- fontfamiy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Text&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section id="Store" class="bg-body-secondary min-vh-100">
+      <div class="container">
+        <h2>Store Mangment</h2>
+        <label for="ProductNameInput">Product Name</label>
+        <input
+          type="text"
+          id="ProductNameInput"
+          class="form-control mb-3"
+          oninput="ValidationName()"
+        />
+        <p
+          id="InVaidName"
+          class="bg-danger-subtle rounded-3 w-50 p-1 text-danger d- d-none"
+        >
+          <i class="fa-solid fa-circle-exclamation pe-3"></i>InVaild Name
+        </p>
+        <label for="ProductPriceInput">Product Price</label>
+        <input
+          type="number"
+          id="ProductPriceInput"
+          class="form-control mb-3"
+          oninput="ValidationPrice()"
+          maxlength="8"
+        />
+        <label for="ProductCategoryInput">Product Category</label>
+        <input
+          type="text"
+          id="ProductCategoryInput"
+          class="form-control mb-3"
+          oninput="ValidationCategory()"
+        />
+        <label for="ProductDescriptionInput">Product Description</label>
+        <textarea
+          type="text"
+          id="ProductDescriptionInput"
+          class="form-control mb-3"
+        ></textarea>
+        <button
+          id="addbtn"
+          onclick="AddProduct()"
+          class="btn btn-primary d-block"
+        >
+          Add Product
+        </button>
+        <button
+          id="updatebtn"
+          onclick="UpdateProduct()"
+          class="btn btn-info d-none"
+        >
+          Update Product
+        </button>
+        <div class="table-display my-5">
+          <input
+            type="text"
+            placeholder="Search For Product By name"
+            class="form-control my-3"
+            oninput="SearchProduct(this.value)"
+          />
+          <table class="table">
+            <thead>
+              <th>Index</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Description</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- js-connection -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
